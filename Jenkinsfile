@@ -1,5 +1,5 @@
 pipeline {
-    agent slave
+    agent any
     tools {
       maven 'maven3'
     }  
