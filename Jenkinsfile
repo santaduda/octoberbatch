@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent slave
     tools {
       maven 'maven3'
     }  
@@ -11,7 +11,7 @@ pipeline {
         }  
         stage('sonar') {
             steps{
-                cat "Sonar stage"              
+                echo 'sonar satge'             
             }          
         }
     }
