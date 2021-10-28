@@ -6,8 +6,8 @@ pipeline {
     stages{
         stage('Build') {
             steps{
-                sh 'mvn clean'
-                sh 'mvn clean package -x'               
+                sh 'mvn clean install -U'
+                sh 'mvn clean package'               
             }          
         }  
         stage('sonar') {
