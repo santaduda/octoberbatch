@@ -12,7 +12,7 @@ pipeline {
          stage('SonarQube analysis') {
               steps{
                   echo 'hello'
-                  withSonarQubeEnv('sonarqube-8.9.3') { 
+                  withSonarQubeEnv('sonarqube-8.9.3.48735') { 
                   echo 'i am in'
                   sh "mvn sonar:sonar"
                  }
