@@ -9,10 +9,12 @@ pipeline {
                 sh 'mvn clean package'               
             }          
         }  
-        stage('sonar') {
-            steps{
-                echo 'sonar satge'             
-            }          
+         stage('SonarQube analysis') {
+              steps{
+               withSonarQubeEnv('sonarqube-8.9') { 
+                  sh "mvn sonar:sonar"
+                 }
+             }
         }
     }
 }
