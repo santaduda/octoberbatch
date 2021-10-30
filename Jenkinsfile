@@ -11,12 +11,17 @@ pipeline {
         }  
          stage('SonarQube analysis') {
               steps{
-                  echo 'hello'
                   withSonarQubeEnv('SonarQube 8.9.3') { 
-                  echo 'i am in'
                   sh "mvn sonar:sonar"
                  }
              }
         }
+        stage("Quality Gate") {
+            steps {
+              timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
+          }    
     }
 }
