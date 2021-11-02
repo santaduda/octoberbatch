@@ -22,6 +22,25 @@ pipeline {
                 waitForQualityGate abortPipeline: true
               }
             }
-          }    
+          } 
+        stage('Upload war to nexus') {
+            steps{
+                 nexusArtifactUploader artifacts: [
+                     [
+                         artifactId: 'WebApp', 
+                         classifier: '', 
+                         file: 'target/Maven-Webapp-1.0.war', 
+                         type: 'war'
+                     ]
+                 ], 
+                 credentialsId: 'Nexuslogin', 
+                 groupId: 'Demoapp', 
+                 nexusUrl: '172.31.22.31', 
+                 nexusVersion: 'nexus3', 
+                 protocol: 'http', 
+                 repository: 'Demoapp', 
+                 version: '1.0'
+            }          
+        }  
     }
 }
