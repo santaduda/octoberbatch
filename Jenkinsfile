@@ -18,10 +18,9 @@ pipeline {
         }
         stage("Quality Gate") {
             steps {
-             // timeout(time: 1, unit: 'HOURS') {
-              //  waitForQualityGate abortPipeline: true
-              //}
-                echo 'test'
+               timeout(time: 1, unit: 'HOURS') {
+               waitForQualityGate abortPipeline: true
+              }
             }
           } 
         stage('Upload war to nexus') {
