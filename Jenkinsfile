@@ -36,7 +36,7 @@ pipeline {
                  ], 
                  credentialsId: 'Nexuslogin', 
                  groupId: 'Demoapp', 
-                 nexusUrl: '18.118.165.140:8081', 
+                 nexusUrl: '3.19.62.255:8081', 
                  nexusVersion: 'nexus3', 
                  protocol: 'http', 
                  repository: 'Demoapp', 
