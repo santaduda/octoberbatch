@@ -13,6 +13,7 @@ pipeline {
               steps{
                   withSonarQubeEnv('SonarQube 8.9.3') { 
                   sh "mvn sonar:sonar"
+                  echo 'Test'    
                  }
              }
         }
