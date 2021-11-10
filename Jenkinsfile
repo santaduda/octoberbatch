@@ -46,7 +46,7 @@ pipeline {
         }
         stage('Deploy to prod') {
             steps{
-                ansible-playbook /tmp/deploy.yaml
+                sh 'ansible-playbook /tmp/deploy.yaml'
             }          
         }
     }
