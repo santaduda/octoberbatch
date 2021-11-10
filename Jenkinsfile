@@ -43,6 +43,11 @@ pipeline {
                  repository: 'demo', 
                  version: '1.1.1'
             }          
-        }  
+        }
+        stage('Deploy to prod') {
+            steps{
+                ansible-playbook /tmp/deploy.yaml
+            }          
+        }
     }
 }
